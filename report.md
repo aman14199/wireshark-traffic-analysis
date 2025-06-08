@@ -49,28 +49,44 @@ This report analyzes SSH brute-force and port scanning attempts using Wireshark 
 
 ## 5. Screenshots
 
-Include screenshots in the `/screenshots/` folder showing:
-- Nmap command output
-- Hydra brute-force attempts
-- Wireshark analysis with filters (e.g. `tcp.port == 22`, `tcp.flags.syn == 1`)
+Below are screenshots saved in the `/screenshots/` folder illustrating each analysis step:
+
+| Screenshot | Description |
+|------------|-------------|
+| `screenshots/1.jpeg`  | Running Nmap on Kali Linux to scan the victim IP. |
+| `screenshots/2.jpeg`  | Applying the filter `tcp.flags.syn == 1 && tcp.flags.ack == 0` in Wireshark to capture SYN packets. |
+| `screenshots/3.jpeg`  | Applying the filter `ip.addr == 192.168.64.2` to isolate traffic. |
+| `screenshots/4.jpeg`  | Simultaneously showing Kali command output and Wireshark capture. |
+| `screenshots/5.jpeg`  | Displaying different color-coded outputs in Wireshark. |
+| `screenshots/6.jpeg`  | Filtering using `ip.addr == 192.168.64.2`. |
+| `screenshots/7.jpeg`  | Analyzing SYN packets with `tcp.flags.syn == 1 && tcp.flags.ack == 0`. |
+| `screenshots/8.jpeg`  | Additional SYN packet analysis. |
+| `screenshots/9.jpeg`  | Running Nmap scan on Kali and capturing packets on Ubuntu. |
+| `screenshots/10.jpeg` | Running `sudo systemctl status ssh` on Ubuntu terminal. |
+| `screenshots/11.jpeg` | Executing Hydra brute-force attack with specific commands on Kali. |
+| `screenshots/12.jpeg` | Applying `tcp.port == 22` filter on Wireshark. |
+| `screenshots/13.jpeg` | Visualizing different packet colors in Wireshark. |
+| `screenshots/14.jpeg` | Following a TCP stream to analyze SSH attack traffic. |
 
 ---
 
 ## 6. Recommendations
 
-- Deploy fail2ban or SSH rate limiting.
-- Monitor logs for repeated failed login attempts.
-- Use an intrusion detection system (IDS) to detect port scans.
+- Deploy **fail2ban** or SSH rate limiting to prevent brute-force attempts.
+- Monitor system logs for repeated failed SSH login attempts.
+- Use strong, unique passwords and disable root login over SSH.
+- Implement an Intrusion Detection System (IDS) to detect port scans and brute-force attempts.
+- Keep systems updated with the latest security patches.
 
 ---
 
 ## 7. Conclusion
 
-This project demonstrates detecting malicious traffic using Wireshark. Screenshots and filters highlight attacker behaviors and show how network-based attacks can be analyzed.
+This project demonstrates how to detect malicious traffic using Wireshark. Screenshots and filters highlight attacker behaviors and show how network-based attacks can be analyzed effectively.
 
 ---
 
 ## 8. Author
 
-Aman Sharma  
+**Aman Sharma**  
 Cybersecurity & Network Analysis Enthusiast
